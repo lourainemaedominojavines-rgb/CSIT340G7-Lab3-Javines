@@ -1,5 +1,5 @@
 const Header = (props) => {
-  return <h1>{props.course}</h1>
+  return <h1>{props.course.name}</h1>
 }
 
 const Part = (props) => {
@@ -36,24 +36,26 @@ const Footer = props => {
 
 
 const App = () => {
-  const course = 'Human Computer Interactions'
 
-  const parts = [
-    {
-      name: 'User Experience (UX) Design and Usability',
-      exercises: 3
-    },
+  const course = {
+    name: 'Human Computer Interactions',
+    parts: [
+      {
+        name: 'User Experience (UX) Design and Usability',
+        exercises: 3
+      },
 
-    {
-      name: 'User-Centered Design (UCD)',
-      exercises: 4
-    },
-    
-    {
-      name: 'Accessibility and Inclusive Design',
-      exercises: 3
-    }
-  ]
+      {
+        name: 'User-Centered Design (UCD)',
+        exercises: 4
+      },
+
+      {
+        name: 'Accessibility and Inclusive Design',
+        exercises: 3
+      }
+    ]
+  }
 
   const name = 'Louraine Mae D. Javines'
   const code = 'CSIT238'
@@ -62,8 +64,8 @@ const App = () => {
   return (
     <div>
       <Header course = {course}></Header>
-      <Content parts = {parts}></Content>
-      <Total parts = {parts}></Total>
+      <Content parts = {course.parts}></Content>
+      <Total parts = {course.parts}></Total>
       <Footer name = {name} code = {code} section = {section}></Footer>
       </div>
   )
