@@ -12,16 +12,16 @@ const Part = (props) => {
 const Content = (props) => {
   return (
     <div>
-      <Part part = {props.part1} exercises = {props.exercises1} />
-      <Part part = {props.part2} exercises = {props.exercises2} />
-      <Part part = {props.part3} exercises = {props.exercises3} />
+      <Part part = {props.parts[0]} ></Part>
+      <Part part = {props.parts[1]} ></Part>
+      <Part part = {props.parts[2]} ></Part>
     </div>
   )
 }
 
 const Total = (props) => {
   return (
-    <p> Number of exercises {props.part1.exercises + props.part2.exercises + props.part3.exercises} </p>
+    <p> Number of exercises {props.parts[0].exercises + props.parts[1].exercises + props.parts[2].exercises} </p>
   )
 }
 
@@ -38,19 +38,22 @@ const Footer = props => {
 const App = () => {
   const course = 'Human Computer Interactions'
 
-  const part1 = {
-    name: 'User Experience (UX) Design and Usability',
-    exercises: 3
-  }
-  const part2 = {
-    name: 'User-Centered Design (UCD)',
-    exercises: 4
-  }
-  
-  const part3 = {
-    name: 'Accessibility and Inclusive Design',
-    exercises: 3
-  }
+  const parts = [
+    {
+      name: 'User Experience (UX) Design and Usability',
+      exercises: 3
+    },
+
+    {
+      name: 'User-Centered Design (UCD)',
+      exercises: 4
+    },
+    
+    {
+      name: 'Accessibility and Inclusive Design',
+      exercises: 3
+    }
+  ]
 
   const name = 'Louraine Mae D. Javines'
   const code = 'CSIT238'
@@ -59,10 +62,10 @@ const App = () => {
   return (
     <div>
       <Header course = {course}></Header>
-      <Content part1 = {part1} part2 = {part2} part3 = {part3} ></Content>
-      <Total part1 = {part1} part2 = {part2} part3 = {part3} ></Total>
-      <Footer name = {name} code = {code} section = {section} ></Footer>
-    </div>
+      <Content parts = {parts}></Content>
+      <Total parts = {parts}></Total>
+      <Footer name = {name} code = {code} section = {section}></Footer>
+      </div>
   )
 }
 
