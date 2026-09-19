@@ -2,9 +2,9 @@ const Header = (props) => {
   return <h1>{props.course}</h1>
 }
 
-  const Part = (props) => {
+const Part = (props) => {
   return (
-    <p> {props.part} {props.exercises} </p>
+    <p> {props.part.name} {props.part.exercises} </p>
   )
 }
 
@@ -21,26 +21,36 @@ const Content = (props) => {
 
 const Total = (props) => {
   return (
-    <p> Number of exercises {props.exercises1 + props.exercises2 + props.exercises3} </p>
+    <p> Number of exercises {props.part1.exercises + props.part2.exercises + props.part3.exercises} </p>
   )
 }
 
 const Footer = props => {
   return (
     <footer>
+      <hr />
       <p> {props.name} - {props.code} - {props.section} </p>
     </footer>
   )
 }
 
+
 const App = () => {
-  const course = 'Human Computer Interaction'
-  const part1 = 'User Experience (UX) Design and Usability'
-  const exercises1 = 3
-  const part2 = 'User-Centered Design (UCD)'
-  const exercises2 = 4
-  const part3 = 'Accessibility and Inclusive Design'
-  const exercises3 = 3
+  const course = 'Human Computer Interactions'
+
+  const part1 = {
+    name: 'User Experience (UX) Design and Usability',
+    exercises: 3
+  }
+  const part2 = {
+    name: 'User-Centered Design (UCD)',
+    exercises: 4
+  }
+  
+  const part3 = {
+    name: 'Accessibility and Inclusive Design',
+    exercises: 3
+  }
 
   const name = 'Louraine Mae D. Javines'
   const code = 'CSIT238'
@@ -48,20 +58,10 @@ const App = () => {
 
   return (
     <div>
-      <Header course={course}></Header>
-
-      <Content
-        part1 = {part1} exercises1 = {exercises1}
-        part2 = {part2} exercises2 = {exercises2}
-        part3 = {part3} exercises3 = {exercises3}
-      ></Content>
-
-      <Total
-        exercises1 = {exercises1} exercises2 = {exercises2} exercises3 = {exercises3}
-      ></Total>
-
+      <Header course = {course}></Header>
+      <Content part1 = {part1} part2 = {part2} part3 = {part3} ></Content>
+      <Total part1 = {part1} part2 = {part2} part3 = {part3} ></Total>
       <Footer name = {name} code = {code} section = {section} ></Footer>
-
     </div>
   )
 }
